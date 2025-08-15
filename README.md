@@ -7,6 +7,12 @@ Keep your Distrobox containers automatically updated on any Linux system that us
 2. Optional desktop notifications
 3. Flexible scheduling (weekly or daily)
 
+## Prerequisites
+
+- **systemd** the host system must have systemd by default  
+- **Docker** or **Podman** on the host system (Linux)  
+- **Distrobox** with container installed ([see how to install](https://github.com/89luca89/distrobox))
+
 ## Installation
 
 ### 1. Create the Systemd service file
