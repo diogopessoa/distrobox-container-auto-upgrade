@@ -4,16 +4,50 @@ Keep your Distrobox containers automatically updated on any Linux system that us
 
 ## Features
 1. **Automatic updates** for all Distrobox containers
-2. Optional desktop notifications
-3. Flexible scheduling (weekly or daily)
+2. **Flexible scheduling** (weekly or daily)
+3. **No sudo needed** (run as normal user)
 
 ## Prerequisites
 
 - **systemd** the host system must have systemd by default  
-- **Docker** or **Podman** on the host system (Linux)  
+- **Podman** or **Docker** on the host system (Linux)  
 - **Distrobox** with container installed ([see how to install](https://github.com/89luca89/distrobox))
 
-## Installation
+# Script Installation
+
+The script will automatically create files in `~/.config/systemd/user/` and configure automatic updates according to your choice!
+
+## How to Use
+
+### 1. Download the script:
+   ```bash
+   cd ~/Downloads
+   wget https://raw.githubusercontent.com/diogopessoa/distrobox-container-auto-upgrade/main/distrobox-container-auto-upgrade.sh
+   ```
+
+### 2. Make the script executable:
+   ```bash
+   chmod +x distrobox-container-auto-upgrade.sh
+   ```
+
+### 3. Run the script with root permissions:
+   ```bash
+   sudo ./distrobox-container-auto-upgrade.sh
+   ```
+
+### 4. **Follow the interactive menu**
+```
+Select the update type:
+1. Weekly Update (Sunday 01:00)
+2. Daily Update (60s after boot)
+
+Enter your choice (1 or 2): 
+```
+
+### ✅ Done!
+
+
+## Manual Installation
 
 ### 1. Create the Systemd service file
 
@@ -53,11 +87,13 @@ Description=Update Distrobox containers (weekly, Sunday 01h)
 
 [Timer]
 # Execute every Sunday at 01h
-OnCalendar=Sun 01:00
+OnCalendar=Sun *-*-* 01:00:00
 # Tolerance for execution
 AccuracySec=1h
 # Run if missed last window
 Persistent=true
+# Ativa o timer imediatamente
+WakeSystem=false
 
 [Install]
 WantedBy=timers.target
