@@ -1,5 +1,4 @@
-# Distrobox Auto-Upgrade Systemd Service
-
+# Distrobox Container Auto-Upgrade
 Keep your Distrobox containers automatically updated on any Linux system that uses Systemd.
 
 ## Features
