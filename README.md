@@ -3,7 +3,7 @@
 Keep your Distrobox containers automatically updated on any Linux system that uses Systemd.
 
 ## Features
-1. **Weekly automatic updates** for all Distrobox containers
+1. **Automatic updates** for all Distrobox containers
 2. Optional desktop notifications
 3. Flexible scheduling (weekly or daily)
 
@@ -49,14 +49,12 @@ nano ~/.config/systemd/user/distrobox-upgrade.timer
 ```
 ```ini
 [Unit]
-Description=Update Distrobox containers (60s after login + weekly)
+Description=Update Distrobox containers (weekly, Sunday 01h)
 
 [Timer]
-# Runs 60 seconds after first login
-OnBootSec=60s
-# Repeats weekly after last activation
-OnUnitActiveSec=1w
-# Execution window
+# Execute every Sunday at 01h
+OnCalendar=Sun 01:00
+# Tolerance for execution
 AccuracySec=1h
 # Run if missed last window
 Persistent=true
