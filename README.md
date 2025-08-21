@@ -1,18 +1,22 @@
 # Distrobox Container Auto-Upgrade
 Keep your Distrobox containers automatically updated on any Linux system that uses Systemd.
 
+![Descrição da imagem](https://raw.githubusercontent.com/diogopessoa/distrobox-container-auto-upgrade/main/run-distrobox-container-auto-upgrade-1.png)
+
 ## Features
-1. **Automatic updates** for all Distrobox containers
-2. **Flexible scheduling** (weekly or daily)
-3. **No sudo needed** (run as normal user)
+ 1. 🟢 **Automatic updates** for all Distrobox containers
+ 2. 🟢 **Flexible scheduling** weekly or daily
+ 3. 🟢 **No sudo needed** run as normal user
 
 ## Prerequisites
-
 - **systemd** the host system must have systemd by default  
 - **Podman** or **Docker** on the host system (Linux)  
 - **Distrobox** with container installed ([see how to install](https://github.com/89luca89/distrobox))
 
-# Script Installation
+### Notice
+This script works regardless of whether Distrobox is installed in the user folder or the root folder. However, container managers like [DistroShelf](https://flathub.org/pt-BR/apps/com.ranfdev.DistroShelf) or [BoxBuddy](https://flathub.org/pt-BR/apps/io.github.dvlv.boxbuddyrs) only recognize Distrobox installed in the root folder.
+
+# Automatic Installation
 
 The script will automatically create files in `~/.config/systemd/user/` and configure automatic updates according to your choice!
 
@@ -31,7 +35,7 @@ The script will automatically create files in `~/.config/systemd/user/` and conf
 
 ### 3. Run the script with root permissions:
    ```bash
-   sudo ./distrobox-container-auto-upgrade.sh
+   ./distrobox-container-auto-upgrade.sh
    ```
 
 ### 4. **Follow the interactive menu**
