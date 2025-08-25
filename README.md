@@ -33,7 +33,7 @@ The script will automatically create files in `~/.config/systemd/user/` and conf
    chmod +x distrobox-container-auto-upgrade.sh
    ```
 
-### 3. Run the script with root permissions:
+### 3. Run the script:
    ```bash
    ./distrobox-container-auto-upgrade.sh
    ```
