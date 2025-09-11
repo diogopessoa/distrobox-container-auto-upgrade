@@ -60,20 +60,20 @@ create_service_file() {
     local distrobox_path="$1"
     local service_file="$HOME/.config/systemd/user/distrobox-upgrade.service"
     
-    print_status "Criando arquivo de serviço: $service_file"
+    print_status "Creating service file: $service_file"
     
     mkdir -p "$(dirname "$service_file")"
     
     cat > "$service_file" << EOF
 [Unit]
-Description=Atualiza todos os containers do Distrobox
+Description=Update all Distrobox containers 
 After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=$distrobox_path --all
+ExecStart=/usr/sbin/distrobox-upgrade --all
 # Optional: Notification after update (if in graphical environment)
-ExecStartPost=/usr/bin/notify-send "Distrobox" "Containers updated successfully!"
+ExecStartPost=/usr/bin/notify-send "📦️ Distrobox" "Containers updated successfully!"
 
 [Install]
 WantedBy=default.target
@@ -99,17 +99,15 @@ create_timer_file() {
             # Weekly update (Sunday 01:00)
             cat > "$timer_file" << EOF
 [Unit]
-Description=Update Distrobox containers (weekly, Sunday 01h)
+Description=Update Distrobox containers (weekly, Monday 10h)
 
 [Timer]
-# Runs every Sunday at 01:00
-OnCalendar=Sun *-*-* 01:00:00
+# Runs every Monday
+OnCalendar=Mon 10:00:00
 # Tolerance for execution grouping
 AccuracySec=1h
 # Run if missed last window
 Persistent=true
-# Activate timer immediately
-WakeSystem=false
 
 [Install]
 WantedBy=timers.target
