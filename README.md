@@ -41,7 +41,7 @@ The script will automatically create files in `~/.config/systemd/user/` and conf
 ### 4. **Follow the interactive menu**
 ```
 Select the update type:
-1. Weekly Update (Sunday 01:00)
+1. Weekly Update (Mnday 10:00)
 2. Daily Update (60s after boot)
 
 Enter your choice (1 or 2): 
@@ -86,7 +86,7 @@ nano ~/.config/systemd/user/distrobox-upgrade.timer
 ```
 ```ini
 [Unit]
-Description=Update Distrobox containers (weekly, Sunday 01h)
+Description=Update Distrobox containers (weekly, Monday 10h)
 
 [Timer]
 # Execute every Monday at 10h
