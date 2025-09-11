@@ -96,7 +96,7 @@ create_timer_file() {
     
     case $choice in
         1)
-            # Weekly update (Sunday 01:00)
+            # Weekly update (Monday 01:00)
             cat > "$timer_file" << EOF
 [Unit]
 Description=Update Distrobox containers (weekly, Monday 10h)
@@ -112,7 +112,7 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 EOF
-            print_success "Configured for WEEKLY update (Sunday 01:00)"
+            print_success "Configured for WEEKLY update (Monday 10:00)"
             ;;
         2)
             # Daily update
@@ -230,7 +230,7 @@ main() {
     # Options menu
     echo ""
     echo "Select update type:"
-    echo "1. Weekly Update (Sunday 01:00)"
+    echo "1. Weekly Update (Monday 10:00)"
     echo "2. Daily Update (60s after boot)"
     echo ""
     read -p "Enter your choice (1 or 2): " choice
