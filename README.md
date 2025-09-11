@@ -73,9 +73,9 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/distrobox-upgrade --all
+ExecStart=/usr/sbin/distrobox-upgrade --all
 # Optional: Desktop notification (requires GUI)
-ExecStartPost=/usr/bin/notify-send "Distrobox" "Containers updated successfully!"
+ExecStartPost=/usr/bin/notify-send "📦️ Distrobox" "Containers updated successfully!"
 ```
 
 ### 2. Configure the timer
@@ -89,14 +89,12 @@ nano ~/.config/systemd/user/distrobox-upgrade.timer
 Description=Update Distrobox containers (weekly, Sunday 01h)
 
 [Timer]
-# Execute every Sunday at 01h
-OnCalendar=Sun *-*-* 01:00:00
+# Execute every Monday at 10h
+OnCalendar=Mon 10:00:00
 # Tolerance for execution
 AccuracySec=1h
 # Run if missed last window
 Persistent=true
-# Ativa o timer imediatamente
-WakeSystem=false
 
 [Install]
 WantedBy=timers.target
