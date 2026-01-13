@@ -99,11 +99,11 @@ create_timer_file() {
             # Weekly update (Monday 01:00)
             cat > "$timer_file" << EOF
 [Unit]
-Description=Update Distrobox containers (weekly, Monday 10h)
+Description=Update Distrobox containers (weekly, Wednesday 10h)
 
 [Timer]
-# Runs every Monday
-OnCalendar=Mon 10:00:00
+# Runs every Wednesday 
+OnCalendar=Wed 10:00:00
 # Tolerance for execution grouping
 AccuracySec=1h
 # Run if missed last window
@@ -112,7 +112,7 @@ Persistent=true
 [Install]
 WantedBy=timers.target
 EOF
-            print_success "Configured for WEEKLY update (Monday 10:00)"
+            print_success "Configured for WEEKLY update (Wednesday 10:00)"
             ;;
         2)
             # Daily update
