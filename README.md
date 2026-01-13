@@ -25,17 +25,17 @@ The script will automatically create files in `~/.config/systemd/user/` and conf
 ### 1. Download the script:
    ```bash
    cd ~/Downloads
-   wget https://raw.githubusercontent.com/diogopessoa/distrobox-container-auto-upgrade/main/distrobox-container-auto-upgrade.sh
+   wget https://raw.githubusercontent.com/diogopessoa/distrobox-container-auto-upgrade/main/distrobox-upgrade.sh
    ```
 
 ### 2. Make the script executable:
    ```bash
-   chmod +x distrobox-container-auto-upgrade.sh
+   chmod +x distrobox-upgrade.sh
    ```
 
 ### 3. Run the script:
    ```bash
-   ./distrobox-container-auto-upgrade.sh
+   ./distrobox-upgrade.sh
    ```
 
 ### 4. **Follow the interactive menu**
